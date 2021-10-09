@@ -22,10 +22,10 @@ db.once('open', () => {
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen( PORT , () => {
+app.listen(PORT, () => {
   console.log(`app is running on http://localhost:${PORT}`)
 })
