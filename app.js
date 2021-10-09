@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const URL = require('./models/URL')
+const exphbs = require('express-handlebars')
 
 const app = express()
 
@@ -17,8 +19,11 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 app.get('/', (req,res) => {
-  res.send(`it will be a URLshortener`)
+  res.render('index')
 })
 
 app.listen( PORT , () => {
