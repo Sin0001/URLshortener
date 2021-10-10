@@ -1,15 +1,14 @@
 <div class="d-flex flex-column align-items-center border border-light mt-5">
   <div class="result mt-5">
-    {{!-- 輸入相同網址時，產生一樣的縮址 --}}
+    {{!-- 輸入相同網址時產生一樣的縮址 --}}
     {{#if url}}
-    <h2 class="text-left">We have had shortened the url before this one:</h2>
+    <h2 class="text-left">您輸入的網址已經產生過了哦 <i class="fas fa-arrow-circle-down"></i></h2>
     <div style="font-size: 30px; text-align:left;">
       <a href="{{ url.inputUrl }}" target="_blank" id="copyText">{{ url.outputUrl }}</a>
     </div>
     {{else}}
-    {{!-- 輸入新建網址時 --}}
     {{#if inputUrl}}
-    <h2 class="text-left">Success! Please use this link:</h2>
+    <h2 class="text-left">成功 ! 請使用這個連結 <i class="fas fa-arrow-circle-down"></i></h2>
     <div style="font-size: 30px; text-align:left;">
       <a href="{{ inputUrl }}" target="_blank" id="copyText">{{ newOutputUrl }}</a>
     </div>
