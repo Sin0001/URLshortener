@@ -1,0 +1,23 @@
+<div class="d-flex flex-column align-items-center border border-light mt-5">
+  <div class="result mt-5">
+    {{!-- 輸入相同網址時，產生一樣的縮址 --}}
+    {{#if url}}
+    <h2 class="text-left">We have had shortened the url before this one:</h2>
+    <div style="font-size: 30px; text-align:left;">
+      <a href="{{ url.inputUrl }}" target="_blank" id="copyText">{{ url.outputUrl }}</a>
+    </div>
+    {{else}}
+    {{!-- 輸入新建網址時 --}}
+    {{#if inputUrl}}
+    <h2 class="text-left">Success! Please use this link:</h2>
+    <div style="font-size: 30px; text-align:left;">
+      <a href="{{ inputUrl }}" target="_blank" id="copyText">{{ newOutputUrl }}</a>
+    </div>
+    {{/if}}
+    {{/if}}
+  </div>
+
+  <div class="buttons mt-5">
+    <a href="/" class="btn btn-outline-primary">Back</a>
+  </div>
+</div>
