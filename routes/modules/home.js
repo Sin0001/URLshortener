@@ -23,11 +23,18 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get('/error', (req, res) => {
+  res.render('error')
+})
+
 router.get('/:shortenUrl', (req, res) => {
   const shortenUrl = req.params.shortenUrl
   return URL.findOne({ outputUrl: { $regex: shortenUrl } })
     .lean()
-    .then((url) => res.redirect(url.inputUrl))
+    .then((url) => {
+      if (url) return res.redirect(url.inputUrl)
+      return res.render('error', { shortenUrl })
+    })
     .catch(error => console.log(error))
 })
 
